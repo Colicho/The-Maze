@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/The-Maze/static/css/main.13ea230d.chunk.css",
+    "main.js": "/The-Maze/static/js/main.8f0b4afd.chunk.js",
+    "main.js.map": "/The-Maze/static/js/main.8f0b4afd.chunk.js.map",
+    "runtime-main.js": "/The-Maze/static/js/runtime-main.3fae77ae.js",
+    "runtime-main.js.map": "/The-Maze/static/js/runtime-main.3fae77ae.js.map",
+    "static/js/2.c9f55b4f.chunk.js": "/The-Maze/static/js/2.c9f55b4f.chunk.js",
+    "static/js/2.c9f55b4f.chunk.js.map": "/The-Maze/static/js/2.c9f55b4f.chunk.js.map",
+    "static/js/3.94acc357.chunk.js": "/The-Maze/static/js/3.94acc357.chunk.js",
+    "static/js/3.94acc357.chunk.js.map": "/The-Maze/static/js/3.94acc357.chunk.js.map",
+    "index.html": "/The-Maze/index.html",
+    "static/css/main.13ea230d.chunk.css.map": "/The-Maze/static/css/main.13ea230d.chunk.css.map",
+    "static/js/2.c9f55b4f.chunk.js.LICENSE.txt": "/The-Maze/static/js/2.c9f55b4f.chunk.js.LICENSE.txt",
+    "static/media/logo.103b5fa1.svg": "/The-Maze/static/media/logo.103b5fa1.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3fae77ae.js",
+    "static/js/2.c9f55b4f.chunk.js",
+    "static/css/main.13ea230d.chunk.css",
+    "static/js/main.8f0b4afd.chunk.js"
+  ]
+}
