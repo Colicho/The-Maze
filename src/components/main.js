@@ -7,7 +7,6 @@ function Main(){
         <div className="game">
             <div id="board"></div>
             <button onClick={Begin}>Begin</button>
-            <p>test</p>
         </div>
     )
 }
