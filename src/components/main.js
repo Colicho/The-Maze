@@ -6,7 +6,7 @@ function Main(){
     return(
         <div className="game">
             <div id="board"></div>
-            <button onClick={Begin}>Begin</button>
+            <button onClick={Begin}>Begi</button>
         </div>
     )
 }
