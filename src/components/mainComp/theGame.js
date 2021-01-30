@@ -1,4 +1,3 @@
-import React from "react"
 var game = undefined;
 
 class Vertex{
@@ -205,7 +204,6 @@ class Maze{
         }
     }
     validInput(position, userMoves = null, bestRoute = null, userInput = null){
-        var validMoves = ["w", "a", "s", "d", "wa", "wd", "as", "sd", "b"]
         while(true){
             if (bestRoute != null){
                 userInput = this.getValidMoves()
@@ -279,10 +277,10 @@ class Maze{
                 }
             }
             else if (userInput === "b"){
-                if (userMoves.length != 0){
-                    this.matrix[position[0]][position[1]] = 0
+                if (userMoves.length !== 0){
                     userMoves.pop()
-                    if (userMoves.length != 0){
+                    this.matrix[position[0]][position[1]] = "O" 
+                    if (userMoves.length !== 0){
                         return userMoves[userMoves.length-1]
                     }
                     else{
@@ -307,6 +305,7 @@ function Begin(){
     if(game.getGame() === false){
         return Begin()
     }
+    document.getElementById("beginDiv").style.gridColumn = "1"
     
     //document.getElementById('board').appendChild(document.createTextNode(game.matrix)) 
 }
@@ -315,7 +314,7 @@ function Direction(dir){
     let positionNotChanged = game.position
     game.matrix[game.position[0]][game.position[1]] = "@"
     game.position = game.validInput(game.position, game.userMoves, null, dir)
-    if (game.position!=positionNotChanged){
+    if (game.position!==positionNotChanged){
         game.matrix[game.position[0]][game.position[1]] = '#'
         const myNode = document.getElementById("board");
         while (myNode.firstChild) {
@@ -323,11 +322,14 @@ function Direction(dir){
         }
         game.getMaze(game.matrix)
     }
+    if ((game.position[0] === game.height-2) && (game.position[1] === game.width-2)){
+        document.getElementById("winning").style.visibility = "visible";
+    }
 }
 
 const func = {
     Begin,
-    Direction
+    Direction,
 }
 
 export default func
