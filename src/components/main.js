@@ -21,7 +21,7 @@ function Main(props){
                 <button className="button" onClick={() => func.Direction("s")} >Down</button>
                 <button className="button" onClick={() => func.Direction("sd")} >Down-Right</button>
             </div>
-            <div id="winning">You cleared the maze in ?? moves. The fastest route requires ?? moves.</div>
+            <div id="winning"></div>
         </div>
     )
 }
