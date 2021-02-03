@@ -306,8 +306,6 @@ function Begin(){
         return Begin()
     }
     document.getElementById("beginDiv").style.gridColumn = "1"
-    
-    //document.getElementById('board').appendChild(document.createTextNode(game.matrix)) 
 }
 
 function Direction(dir){
