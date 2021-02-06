@@ -293,6 +293,7 @@ class Maze{
     }
 }
 
+
 function Begin(){
     const myNode = document.getElementById("board");
     document.getElementById('board').style.gridTemplateColumns="auto";
