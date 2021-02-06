@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/The-Maze/static/css/main.c942adca.chunk.css",
-    "main.js": "/The-Maze/static/js/main.c1d8f545.chunk.js",
-    "main.js.map": "/The-Maze/static/js/main.c1d8f545.chunk.js.map",
+    "main.css": "/The-Maze/static/css/main.f1360c2a.chunk.css",
+    "main.js": "/The-Maze/static/js/main.414fc253.chunk.js",
+    "main.js.map": "/The-Maze/static/js/main.414fc253.chunk.js.map",
     "runtime-main.js": "/The-Maze/static/js/runtime-main.3fae77ae.js",
     "runtime-main.js.map": "/The-Maze/static/js/runtime-main.3fae77ae.js.map",
     "static/js/2.c9f55b4f.chunk.js": "/The-Maze/static/js/2.c9f55b4f.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.94acc357.chunk.js": "/The-Maze/static/js/3.94acc357.chunk.js",
     "static/js/3.94acc357.chunk.js.map": "/The-Maze/static/js/3.94acc357.chunk.js.map",
     "index.html": "/The-Maze/index.html",
-    "static/css/main.c942adca.chunk.css.map": "/The-Maze/static/css/main.c942adca.chunk.css.map",
+    "static/css/main.f1360c2a.chunk.css.map": "/The-Maze/static/css/main.f1360c2a.chunk.css.map",
     "static/js/2.c9f55b4f.chunk.js.LICENSE.txt": "/The-Maze/static/js/2.c9f55b4f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3fae77ae.js",
     "static/js/2.c9f55b4f.chunk.js",
-    "static/css/main.c942adca.chunk.css",
-    "static/js/main.c1d8f545.chunk.js"
+    "static/css/main.f1360c2a.chunk.css",
+    "static/js/main.414fc253.chunk.js"
   ]
 }
