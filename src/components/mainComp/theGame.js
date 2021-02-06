@@ -7,7 +7,6 @@ class Vertex{
         this.distance = 9007199254740992
         this.visited = false;
         this.previousNode = null;
-        this.weight = 1
     }
     addConnection(neighbor){
         this.connections.push(neighbor)       
@@ -29,11 +28,9 @@ class Graph{
         this.vertices = 0
     }
     addVertex(node){
-        //ÄNDRA PÅ DICTIORNARY, INTE SAMMA SOM PYTHON
         this.vertices++
         let newVertex = new Vertex(node)
         this.vertexDict[node] = newVertex
-
     }
     addEdge(frm, to){
         if (!(frm in this.vertexDict)){
@@ -90,7 +87,6 @@ class Maze{
     }
 
     getMaze(item){
-        //document.getElementById('board').innerHTML = this.matrix
         for (let i = 0; i < item.length; i++){
             for (let x = 0; x < item[i].length; x++){
                 let square = document.createElement('div');
@@ -121,20 +117,15 @@ class Maze{
         }
     }
     getGame(){
-        let fastestRoute = this.bestRoute()
-        if (fastestRoute === false){
+        this.fastestRoute = this.bestRoute()
+        if (this.fastestRoute === false){
             return false
         }
         this.getMaze(this.matrix)
         this.position = [1,1]
-        this.userMoves = []
-        //The game will last until the player reaches the goal
-        /*
-        document.write("Good job! You cleared the maze in " + this.userMoves.lenth.toString(10) + " moves!")
-        document.write("The least amount of moves required for traversing through the maze is " + fastestRoute.toString(10) + "!")
-        return true*/
-        
+        this.userMoves = []        
     }
+
     bestRoute(){
         let g = new Graph()
         //Adding all of the vertices
@@ -172,10 +163,10 @@ class Maze{
         while (graph.vertexDict[(this.width-2)*(this.height-2)].distance === 9007199254740992){
             vertex = queue[0]
             for(var i = 0; i < vertex.connections.length; i++){
-                if (vertex.connections[i].previousNode == null || vertex.distance + vertex.connections[i].connections[vertex] < vertex.connections[i].distance){
+                if (vertex.connections[i].previousNode === null || vertex.distance + vertex.connections[i].connections[vertex] < vertex.connections[i].distance){
                     queue.push(vertex.connections[i])
                     vertex.connections[i].setPreviousNode(vertex)
-                    vertex.connections[i].setDistance(vertex.distance + vertex.connections[i].connections[vertex])
+                    vertex.connections[i].setDistance(vertex.distance + 1)
                 }
             }
             vertex.setVisited()
@@ -186,11 +177,10 @@ class Maze{
             }
         }
         if (graph.vertexDict[(this.width-2)*(this.height-2)].distance === 9007199254740992){
-            //document.write("Unfortunately, there is no solution to this maze :(")
             return false
         }
         else{
-            return graph.vertexDict[(this.width-2)*(this.height-2)].distanceboard
+            return graph.vertexDict[(this.width-2)*(this.height-2)].distance
         }
     }
     getValidMoves(){
@@ -203,6 +193,7 @@ class Maze{
             return validMoves[this.index]
         }
     }
+
     validInput(position, userMoves = null, bestRoute = null, userInput = null){
         while(true){
             if (bestRoute != null){
@@ -293,20 +284,32 @@ class Maze{
     }
 }
 
-
 function Begin(){
-    const myNode = document.getElementById("board");
-    document.getElementById('board').style.gridTemplateColumns="auto";
-    document.getElementById('board').style.gridTemplateRows="auto";
-    while (myNode.firstChild) {
-        myNode.removeChild(myNode.firstChild);
+    let length = parseInt(document.getElementById("length").value)
+    let width = parseInt(document.getElementById("width").value)
+    //Checks valid user input
+    if (isNaN(length) || isNaN(width) || length > 50 || length <= 14 || width > 50 || width <= 14){
+        document.getElementById("winning").innerHTML = "You have to type in width and lenght of the maze!"
     }
-    game = new Maze(25,12)
-    document.getElementById("buttons").style.display = "grid";
-    if(game.getGame() === false){
-        return Begin()
+    else{
+        document.getElementById('board').style.gridTemplateColumns="auto";
+        document.getElementById('board').style.gridTemplateRows="auto";
+        const myNodee = document.getElementById("winning");
+        while (myNodee.firstChild) {
+            myNodee.removeChild(myNodee.firstChild);
+        }
+        const myNode = document.getElementById("board");
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.firstChild);
+        }
+        game = new Maze(length, width)
+        document.getElementById("buttons").style.display = "grid";
+        if(game.getGame() === false){
+            return Begin()
+        }
+        document.getElementById("forms").style.gridColumn = "1";
+        document.getElementById("buttonBegin").value = "Restart";
     }
-    document.getElementById("beginDiv").style.gridColumn = "1"
 }
 
 function Direction(dir){
@@ -322,6 +325,7 @@ function Direction(dir){
         game.getMaze(game.matrix)
     }
     if ((game.position[0] === game.height-2) && (game.position[1] === game.width-2)){
+        document.getElementById("winning").innerHTML = "You cleared the maze in " + game.userMoves.length + " moves. The fastest route requires " + game.fastestRoute + " moves." 
         document.getElementById("winning").style.visibility = "visible";
     }
 }
